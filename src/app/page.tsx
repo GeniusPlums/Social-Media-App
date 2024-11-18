@@ -1,101 +1,228 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { Bell, Calendar, Crown, Heart, Home, MessageCircle, MoreHorizontal, Plus, Search, Users } from 'lucide-react'
+import Link from "next/link"
+import * as React from "react"
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Input } from "@/components/ui/input"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+import { Textarea } from "@/components/ui/textarea"
+
+export default function Component() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="grid h-screen grid-cols-[240px_1fr_320px]">
+      {/* Left Sidebar */}
+      <div className="border-r">
+        <div className="flex h-14 items-center border-b px-4">
+          <Link className="flex items-center gap-2 font-semibold" href="#">
+            <span className="text-xl">🍽️</span>
+            <span>Mingle Eat Talk</span>
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <nav className="flex flex-col gap-2 p-4">
+          <Link
+            className="flex items-center gap-2 rounded-lg bg-gray-100 px-3 py-2 text-gray-900 transition-colors hover:text-gray-900"
+            href="#"
+          >
+            <Home className="h-4 w-4" />
+            Home
+          </Link>
+          <Link
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-gray-500 transition-colors hover:text-gray-900"
+            href="#"
+          >
+            <Users className="h-4 w-4" />
+            Members
+          </Link>
+          <Link
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-gray-500 transition-colors hover:text-gray-900"
+            href="#"
+          >
+            <Calendar className="h-4 w-4" />
+            Events
+          </Link>
+          <Link
+            className="flex items-center gap-2 rounded-lg px-3 py-2 text-gray-500 transition-colors hover:text-gray-900"
+            href="#"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Discussions
+          </Link>
+        </nav>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex flex-col">
+        <header className="flex h-14 items-center gap-4 border-b px-6">
+          <form className="flex-1">
+            <div className="relative">
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+              <Input
+                className="w-full bg-gray-50 pl-8"
+                placeholder="Search posts, recipes..."
+                type="search"
+              />
+            </div>
+          </form>
+          <Button size="icon" variant="ghost">
+            <Bell className="h-4 w-4" />
+            <span className="sr-only">Notifications</span>
+          </Button>
+          <Avatar>
+            <AvatarImage alt="User" src="/placeholder.svg" />
+            <AvatarFallback>U</AvatarFallback>
+          </Avatar>
+        </header>
+        <main className="flex-1 overflow-auto p-6">
+          <div className="mx-auto max-w-2xl space-y-6">
+            <Card>
+              <CardHeader>
+                <Textarea placeholder="What's cooking, good looking?" />
+              </CardHeader>
+              <CardFooter>
+                <Button>Post</Button>
+              </CardFooter>
+            </Card>
+            {[1, 2, 3].map((post) => (
+              <Card key={post}>
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    <Avatar>
+                      <AvatarImage alt={`User ${post}`} src="/placeholder.svg" />
+                      <AvatarFallback>U{post}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <div className="font-semibold">User Name</div>
+                      <div className="text-sm text-gray-500">2 hours ago</div>
+                    </div>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button size="icon" variant="ghost">
+                          <MoreHorizontal className="h-4 w-4" />
+                          <span className="sr-only">More options</span>
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="end">
+                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                        <DropdownMenuItem>Delete</DropdownMenuItem>
+                        <DropdownMenuItem>Report</DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p>Just made the most amazing homemade pizza! 🍕 The secret is in the dough - let it rise for at least 24 hours for that perfect crust. Who wants the recipe?</p>
+                </CardContent>
+                <CardFooter>
+                  <div className="flex w-full items-center gap-4">
+                    <Button size="sm" variant="ghost">
+                      <Heart className="mr-2 h-4 w-4" />
+                      Like
+                    </Button>
+                    <Button size="sm" variant="ghost">
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      Comment
+                    </Button>
+                    <div className="ml-auto text-sm text-gray-500">15 likes • 3 comments</div>
+                  </div>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </main>
+      </div>
+
+      {/* Right Sidebar */}
+      <div className="border-l">
+        <div className="flex h-14 items-center justify-between border-b px-4">
+          <div className="font-semibold">Community</div>
+          <Button size="icon" variant="ghost">
+            <Plus className="h-4 w-4" />
+            <span className="sr-only">Add</span>
+          </Button>
+        </div>
+        <div className="flex flex-col">
+          {/* Rewards Section */}
+          <div className="border-b p-4">
+            <h3 className="mb-4 font-semibold">Your Rewards</h3>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">🪙</span>
+                <div>
+                  <div className="font-semibold">Gold Coins</div>
+                  <div className="text-sm text-gray-500">1,234</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xl">⭐</span>
+                <div>
+                  <div className="font-semibold">Points</div>
+                  <div className="text-sm text-gray-500">5,678</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Leaderboard Section */}
+          <div className="border-b p-4">
+            <div className="mb-4 flex items-center gap-2">
+              <Crown className="h-4 w-4 text-yellow-500" />
+              <h3 className="font-semibold">Event Attendance Leaders</h3>
+            </div>
+            <ScrollArea className="h-48">
+              <div className="space-y-4">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="flex items-center gap-4">
+                    <div className="font-bold text-gray-500">{i}</div>
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage alt={`User ${i}`} src="/placeholder.svg" />
+                      <AvatarFallback>U{i}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <div className="font-semibold">User Name</div>
+                      <div className="text-sm text-gray-500">{20 - i} events</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollArea>
+          </div>
+
+          {/* Messages Section */}
+          <div className="flex-1 p-4">
+            <h3 className="mb-4 font-semibold">Messages</h3>
+            <ScrollArea className="h-[calc(100vh-400px)]">
+              <div className="space-y-4">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="flex gap-4">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage alt={`User ${i}`} src="/placeholder.svg" />
+                      <AvatarFallback>U{i}</AvatarFallback>
+                    </Avatar>
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <div className="font-semibold">User Name</div>
+                        <div className="text-xs text-gray-500">2m ago</div>
+                      </div>
+                      <div className="text-sm text-gray-500">Latest message preview...</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </ScrollArea>
+            <Separator className="my-4" />
+            <form className="flex gap-2">
+              <Input placeholder="Type a message..." />
+              <Button>Send</Button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
